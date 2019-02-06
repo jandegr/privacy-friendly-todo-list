@@ -1,4 +1,6 @@
-﻿# Privacy Friendly To-Do List
+ [![CircleCI](https://circleci.com/gh/jandegr/privacy-friendly-todo-list.svg?style=svg)](https://circleci.com/gh/jandegr/privacy-friendly-todo-list)
+
+# Privacy Friendly To-Do List
 
 [<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="60">](https://f-droid.org/repository/browse/?fdid=org.secuso.privacyfriendlytodolist)
 
