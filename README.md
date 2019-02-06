@@ -16,12 +16,7 @@ This application has been developed to be used as a basis for a Privacy Friendly
 
 ## Building
 
-Further development requires Android Studio, we recommend to use at least version 2.2.2
- 
-### API Reference
-
-Mininum SDK: 16
-Target SDK: 26 
+Further development requires Android Studio
 
 ## License
 
