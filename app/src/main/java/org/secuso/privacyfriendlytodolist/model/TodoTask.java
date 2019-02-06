@@ -76,6 +76,7 @@ public class TodoTask extends BaseTodo implements Parcelable {
     private int listPosition; // indicates at what position inside the list this task it placed
     private int listIdForeignKey;
     protected long deadline; // absolute timestamp
+    protected long possiblestart; // absolute timestamp
 
     private boolean reminderTimeChanged = false; // important for the reminder service
     private boolean reminderTimeWasInitialized = false;
@@ -111,6 +112,7 @@ public class TodoTask extends BaseTodo implements Parcelable {
         inTrash = parcel.readByte() != 0;
         progress = parcel.readInt();
         deadline = parcel.readLong();
+        possiblestart = parcel.readLong();
         reminderTime = parcel.readLong();
         listPosition = parcel.readInt();
         priority = Priority.fromInt(parcel.readInt());
@@ -124,7 +126,13 @@ public class TodoTask extends BaseTodo implements Parcelable {
     public void setDeadline(long deadline) {
         this.deadline = deadline;
     }
+    public long getPossiblestart() {
+        return possiblestart;
+    }
 
+    public void setPossiblestart(long possiblestart) {
+        this.possiblestart = possiblestart;
+    }
     public void setPositionInList(int pos) {
         this.listPosition = pos;
     }
@@ -214,6 +222,7 @@ public class TodoTask extends BaseTodo implements Parcelable {
         dest.writeByte((byte)(inTrash ? 1 : 0));
         dest.writeInt(progress);
         dest.writeLong(deadline);
+        dest.writeLong(0);  //!!!!!!!!!!!!
         dest.writeLong(reminderTime);
         dest.writeInt(listPosition);
         dest.writeInt(priority.getValue());

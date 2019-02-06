@@ -80,6 +80,16 @@
             android:text="@string/deadline" />
 
         <TextView
+            android:id="@+id/tv_todo_list_possiblestart"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableLeft="@android:drawable/ic_menu_my_calendar"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:text="@string/possiblestart" />
+
+        <TextView
             android:id="@+id/tv_todo_list_reminder"
             android:layout_width="0dp"
             android:layout_height="match_parent"

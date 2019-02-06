@@ -34,6 +34,7 @@ public class TTodoTask {
     public static final String COLUMN_NAME = "name";
     public static final String COLUMN_DESCRIPTION = "description";
     public static final String COLUMN_DEADLINE = "deadline";
+    public static final String COLUMN_POSSIBLESTART = "possiblestart";
     public static final String COLUMN_DONE = "done";
     public static final String COLUMN_PRIORITY = "priority";
     public static final String COLUMN_PROGRESS = "progress";
@@ -52,6 +53,7 @@ public class TTodoTask {
             COLUMN_DESCRIPTION + " TEXT NOT NULL, " +
             COLUMN_PRIORITY + " INTEGER NOT NULL DEFAULT 0, " +
             COLUMN_DEADLINE + " DATETIME DEFAULT NULL, " +
+            COLUMN_POSSIBLESTART + " DATETIME DEFAULT NULL, " +
             COLUMN_DONE + " INTEGER NOT NULL DEFAULT 0, " +
             COLUMN_PROGRESS + " INTEGER NOT NULL DEFAULT 0, " +
             COLUMN_NUM_SUBTAKS + "INTEGER NOT NULL DEFAULT 0, " +

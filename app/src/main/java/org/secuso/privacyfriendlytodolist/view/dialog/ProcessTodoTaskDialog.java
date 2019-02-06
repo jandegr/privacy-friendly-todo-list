@@ -54,6 +54,7 @@ public class ProcessTodoTaskDialog extends FullScreenDialog {
 
     private TextView prioritySelector;
     private TextView deadlineTextView;
+    private TextView possiblestartTextView;
     private TextView reminderTextView;
     private TextView listSelector;
     private TextView dialogTitleNew;
@@ -71,6 +72,7 @@ public class ProcessTodoTaskDialog extends FullScreenDialog {
     private int taskProgress = 0;
     private String name, description;
     private long deadline = -1;
+    private long possiblestart = -1;
     private long reminderTime = -1;
 
     private TodoTask.Priority defaultPriority = TodoTask.Priority.MEDIUM;
@@ -198,6 +200,7 @@ public class ProcessTodoTaskDialog extends FullScreenDialog {
                     task.setName(name);
                     task.setDescription(description);
                     task.setDeadline(deadline);
+                    task.setPossiblestart(possiblestart);
                     task.setPriority(taskPriority);
                     task.setListId(selectedListID);
                     task.setProgress(taskProgress);
@@ -238,6 +241,29 @@ public class ProcessTodoTaskDialog extends FullScreenDialog {
                     }
                 });
                 deadlineDialog.show();
+            }
+        });
+
+        possiblestartTextView = (TextView) findViewById(R.id.tv_todo_list_possiblestart);
+        possiblestartTextView.setTextColor(okayButton.getCurrentTextColor());
+        possiblestartTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DeadlineDialog possiblestartDialog = new DeadlineDialog(getContext(), possiblestart);
+                possiblestartDialog.setCallback(new DeadlineDialog.DeadlineCallback() {
+                    @Override
+                    public void setDeadline(long d) {
+                        possiblestart = d;
+                        possiblestartTextView.setText(Helper.getDate(possiblestart));
+                    }
+
+                    @Override
+                    public void removeDeadline() {
+                        possiblestart = -1;
+                        possiblestartTextView.setText(getContext().getResources().getString(R.string.possiblestart));
+                    }
+                });
+                possiblestartDialog.show();
             }
         });
 

@@ -132,6 +132,7 @@ public class DBQueryHandler {
         boolean done = cursor.getInt(cursor.getColumnIndex(TTodoTask.COLUMN_DONE)) > 0;
         int progress = cursor.getInt(cursor.getColumnIndex(TTodoTask.COLUMN_PROGRESS));
         int deadline = cursor.getInt(cursor.getColumnIndex(TTodoTask.COLUMN_DEADLINE));
+        int possiblestart = cursor.getInt(cursor.getColumnIndex(TTodoTask.COLUMN_POSSIBLESTART));
         int reminderTime = cursor.getInt(cursor.getColumnIndex(TTodoTask.COLUMN_DEADLINE_WARNING_TIME));
         int priority = cursor.getInt(cursor.getColumnIndex(TTodoTask.COLUMN_PRIORITY));
         int listID = cursor.getInt(cursor.getColumnIndex(TTodoTask.COLUMN_TODO_LIST_ID));
@@ -140,6 +141,7 @@ public class DBQueryHandler {
         TodoTask task = new TodoTask();
         task.setName(title);
         task.setDeadline(deadline);
+        task.setPossiblestart(possiblestart);
         task.setDescription(description);
         task.setPriority(TodoTask.Priority.fromInt(priority));
         task.setReminderTime(reminderTime);
@@ -206,6 +208,7 @@ public class DBQueryHandler {
                         String taskDescription = c.getString(c.getColumnIndex(TTodoTask.COLUMN_DESCRIPTION));
                         int progress = c.getInt(c.getColumnIndex(TTodoTask.COLUMN_PROGRESS));
                         long deadline = c.getLong(c.getColumnIndex(TTodoTask.COLUMN_DEADLINE));
+                        long possiblestart = c.getLong(c.getColumnIndex(TTodoTask.COLUMN_POSSIBLESTART));
                         int priority = c.getInt(c.getColumnIndex(TTodoTask.COLUMN_PRIORITY));
                         boolean done = c.getInt(c.getColumnIndex(TTodoTask.COLUMN_DONE)) > 0;
                         int reminderTime = c.getInt(c.getColumnIndex(TTodoTask.COLUMN_DEADLINE_WARNING_TIME));
@@ -219,6 +222,7 @@ public class DBQueryHandler {
                         currentTask.setSubTasks(getSubTasksByTaskId(db, id));
                         currentTask.setProgress(progress);
                         currentTask.setDeadline(deadline);
+                        currentTask.setPossiblestart(possiblestart);
                         currentTask.setPriority(TodoTask.Priority.fromInt(priority));
                         currentTask.setDone(done);
                         currentTask.setReminderTime(reminderTime);
@@ -252,6 +256,7 @@ public class DBQueryHandler {
                         String taskDescription = c.getString(c.getColumnIndex(TTodoTask.COLUMN_DESCRIPTION));
                         int progress = c.getInt(c.getColumnIndex(TTodoTask.COLUMN_PROGRESS));
                         long deadline = c.getLong(c.getColumnIndex(TTodoTask.COLUMN_DEADLINE));
+                        long possiblestart = c.getLong(c.getColumnIndex(TTodoTask.COLUMN_POSSIBLESTART));
                         int priority = c.getInt(c.getColumnIndex(TTodoTask.COLUMN_PRIORITY));
                         boolean done = c.getInt(c.getColumnIndex(TTodoTask.COLUMN_DONE)) > 0;
                         int reminderTime = c.getInt(c.getColumnIndex(TTodoTask.COLUMN_DEADLINE_WARNING_TIME));
@@ -265,6 +270,7 @@ public class DBQueryHandler {
                         currentTask.setSubTasks(getSubTasksByTaskId(db, id));
                         currentTask.setProgress(progress);
                         currentTask.setDeadline(deadline);
+                        currentTask.setPossiblestart(possiblestart);
                         currentTask.setPriority(TodoTask.Priority.fromInt(priority));
                         currentTask.setDone(done);
                         currentTask.setReminderTime(reminderTime);
