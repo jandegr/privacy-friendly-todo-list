@@ -22,6 +22,10 @@ jobs:
          command: |
            ls -la app
            ls -la app/build/outputs/apk
+      - store_artifacts:
+         name: Store APK
+         path: app/build/outputs/apk
+         destination: apk
 workflows:
   version: 2
   build_all:
